@@ -9,7 +9,7 @@
     {
     age: 20,
     examScores: [],
-    gender: 'male',
+    gender: 'female',
     name: 'edu'
   },
   {
@@ -27,85 +27,75 @@
   
   
   /*DONE----------- 1- Mostrar en formato de tabla todos los alumnos. */
-  let studentsTable = console.table(students);
-  studentsTable
-  
+   function showStudentsTable() {
+    console.table ('1:')
+    console.table(students)
+   } 
+
   /*DONE----------- 2- Mostrar por consola la cantidad de alumnos que hay en clase. */
   let totalStudents = students.length
-  console.log(`Número total de alumnos: ${students.length}`);
+  function showTotalStudents(){
+  console.log(`2. Número total de alumnos: ${students.length}`);
+  }
   
   /*DONE------------ 3- Mostrar por consola todos los nombres de los alumnos.*/
-  console.log('3. STUDENTS NAMES:')
-
   function showStudentsNames(students){
+    console.log('3.Names from the class:')
       for (var i=0; i < students.length; i++) {
         var student = students[i];
                 console.log(student.name);
       }   
   }
 
-  showStudentsNames(students)
-
-  
   /*DONE------------4- Eliminar el último alumno de la clase.*/
   function eliminateLastStudent(students){
     students.pop()
-    return console.log(students)
+    console.log('4.Lista tras eliminar último alumno:')
+    showStudentsTable()
   }
-  console.log('4:') 
-  eliminateLastStudent(students)
-  //console.log('4: nada')
-
-  //function eliminateLastStudent(students)
-  /*### 5- Eliminar un alumno aleatoriamente de la clase.*/
-  console.log('5:')
-  console.log('comprobacion:')+ console.log(students)
-  function eliminateRandomeStudent(students){
-
-
-
-
-  }
-  
-console.log('cuantos alumnos hay ahora')
-  console.log(totalStudents)
-function calculateRandomNumber(min, max) {
+ 
+  /*DONE--------------- 5- Eliminar un alumno aleatoriamente de la clase.*/
+  function calculateRandomNumber(min, max) {
     const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    return randomNumber;
-}
+    return randomNumber;}
+  // 
+
+  function eliminateRandomeStudent(students){
+    let randomposition = calculateRandomNumber(0,(totalStudents-1));
+    students.splice(randomposition,1);
+    console.table(students)
+  }
   
-  
+ 
   /*DONE--------------- 6- Mostrar por consola todos los datos de los alumnos que son chicas. CON UN FILTER*/
 function showGirlsStudents(students){
     students = students.filter(students=> students.gender === "female");
     console.log ('6.Girls from the class:')
     return console.log(students)
 }
-showGirlsStudents(students)
 
-  //let girlsStudents = students.filter(students=> students.gender === "female");
-  //console.log('6: Girls from the class: ') + console.log(girlsStudents);
-  
-
-  /*DONE---------------------------### 7- Mostrar por consola el número de chicos y chicas que hay en la clase.CON UN FILTER POR CHICOS Y CON UN FILTER POR CHICAS Y LA LONGITUD*/
-  console.log('7:')
+  /*DONE------------------### 7- Mostrar por consola el número de chicos y chicas que hay en la clase.CON UN FILTER POR CHICOS Y CON UN FILTER POR CHICAS Y LA LONGITUD*/ 
   function numberGirlsAndBoys(students){
   let girlsStudents = students.filter(students=> students.gender === "female")
   let numberGirls= girlsStudents.length
   let boysStudents = students.filter(students=> students.gender === "male")
   let numberBoys = boysStudents.length
- console.log (`Number of girls:${numberGirls}\nNumber of boys:${numberBoys}`)
+ console.log (`7.Number of girls:${numberGirls}\nNumber of boys:${numberBoys}`)
   }
-
- numberGirlsAndBoys(students)
-
-  
   
   /*DONE-------------------8- Mostrar true o false por consola si todos los alumnos de la clase son chicas.BOOLEANO CHICAS*/
   console.log('8:')
 
-  function isFemale(students){
-    return students.gender === "female";
+  //function isFemale(students)
+    //let result;
+    //if (students.gender === "female");{
+     // result= true;
+    //}else 
+     // result = false;
+    
+
+    
+  
     //let result;
     //if (students.gender === "female"){
       //result = true;
@@ -113,14 +103,19 @@ showGirlsStudents(students)
       //result = false;
    // }
     
-  }
+  
 
- console.log (isFemale(students))
+ //console.log (isFemale(students))
 
   /*DONE------------------ 9- Mostrar por consola los nombres de los alumnos que tengan entre 20 y 25 años.FILTER EDAD CON UN IF */
-
-    let studentsBetween20and25 = students.filter( students => (students.age >= 20 && students.age <=25 )); 
-    console.log("The students between 20 and 25 years old are:") + showStudentsNames(studentsBetween20and25)
+   
+    function showNamesStudentesBetween20and25(students) {
+    students = students.filter( students => (students.age >= 20 && students.age <=25 )); 
+    console.log("The students between 20 and 25 years old are:")
+    for (var i=0; i < students.length; i++) {
+      var student = students[i];
+              console.log(student.name);
+    }}
 
 
 
@@ -190,10 +185,10 @@ showGirlsStudents(students)
     //calcular la nota random entre 0 y 10 
     //añadir la 
 
-    function calculateRandomNumber(min, max) {
-      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-      return randomNumber;
-  }
+    //function calculateRandomNumber(min, max) {
+      //const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      //return randomNumber;
+ 
 
     console.log('14:')
   /*### 15- Ordenar el array de alumnos alfabéticamente según su nombre.*/
