@@ -7,13 +7,13 @@
         name: 'zaida'
       },    
     {
-    age: 20,
+    age: 15,
     examScores: [],
     gender: 'female',
     name: 'edu'
   },
   {
-    age: 30,
+    age: 15,
     examScores: [],
     gender: 'female',
     name: 'laura'
@@ -74,7 +74,7 @@ function showGirlsStudents(students){
     return console.log(students)
 }
 
-  /*DONE------------------### 7- Mostrar por consola el número de chicos y chicas que hay en la clase.CON UN FILTER POR CHICOS Y CON UN FILTER POR CHICAS Y LA LONGITUD*/ 
+  /*DONE------------------7- Mostrar por consola el número de chicos y chicas que hay en la clase.CON UN FILTER POR CHICOS Y CON UN FILTER POR CHICAS Y LA LONGITUD*/ 
   function numberGirlsAndBoys(students){
   let girlsStudents = students.filter(students=> students.gender === "female")
   let numberGirls= girlsStudents.length
@@ -83,35 +83,16 @@ function showGirlsStudents(students){
  console.log (`7.Number of girls:${numberGirls}\nNumber of boys:${numberBoys}`)
   }
   
-  /*8- Mostrar true o false por consola si todos los alumnos de la clase son chicas.BOOLEANO CHICAS*/
-  console.log('8:')
+  /*DONE-----------------8- Mostrar true o false por consola si todos los alumnos de la clase son chicas.BOOLEANO CHICAS*/
 
   function isFemale(students){
-    let result;
-
-    if (students.gender === "female"){
-      result = true;
-    } else {
-      result = false;
-    }
-    console.log (result)
+    return students.gender === 'female'
   }
 
-  isFemale(students)
-
-
-    
-  
-    //let result;
-    //if (students.gender === "female"){
-      //result = true;
-    //} else{
-      //result = false;
-   // }
-    
-  
-
- 
+  function printIsFemale(){
+    console.log ('All students are girls:')
+    console.log(students.every(isFemale))
+  }
 
   /*DONE------------------ 9- Mostrar por consola los nombres de los alumnos que tengan entre 20 y 25 años.FILTER EDAD CON UN IF */   
   function showNamesStudentesBetween20and25(students) {
@@ -121,16 +102,8 @@ function showGirlsStudents(students){
       var student = students[i];
               console.log(student.name);
   }}
-
-
-
-  
-  /*DONE------------------10- Añadir un alumno nuevo con los siguientes datos:
-    - nombre aleatorio.
-    - edad aleatoria entre 20 y 50 años.
-    - género aleatorio.
-    - listado de calificaciones vacío.
-  ¡OJO!, el nombre y el género tienen que ir acordes.*/ 
+ 
+  /*DONE------------------10- Añadir un alumno nuevo con datos aleatorios.*/ 
   function addStudent(students){
     let randomName;
     let randomAge = calculateRandomNumber(20,50)
@@ -144,20 +117,21 @@ function showGirlsStudents(students){
       console.log(students)
   }
 
-  /*### 11- Mostrar por consola el nombre de la persona más joven de la clase.
+  /*DONE------------------11- Mostrar por consola el nombre de la persona más joven de la clase.
   ¡OJO!, si varias personas de la clase comparten la edad más baja, cualquiera de ellos es una respuesta válida.*/
 
   function showYoungerStudent(students){
-
-
+    let minAge;
+    minAge = Math.min(...students.map(students=>parseInt(students.age)))
+    console.log(minAge)
+    students = students.filter( students => (students.age === minAge ));
+    console.log("The younger student:")
+    for (var i=0; i < students.length; i++) {
+      var student = students[i];
+              console.log(student.name);
   }
-  //comparar las edades 
-//devolver la edad más baja
+  }
 
-
-
-  //function showYoungerStudent(students)
-  
   /*DONE------------------ 12- Mostrar por consola la edad media de todos los alumnos de la clase.*/
   function mediumAgeStudents(students) {
     let totalAges = 0 
@@ -186,6 +160,10 @@ function showGirlsStudents(students){
   }
 
   /*### 14- Añadir nueva nota a los alumnos. Por cada alumno de la clase, tendremos que calcular una nota de forma aleatoria(número entre 0 y 10) y añadirla a su listado de notas.*/
+  function addMark(students){
+    
+
+  }
   //crear funcion que añada nota random
     //calcular la nota random entre 0 y 10 
     //añadir la 
@@ -197,8 +175,3 @@ function showGirlsStudents(students){
 
     console.log('14:')
   /*### 15- Ordenar el array de alumnos alfabéticamente según su nombre.*/
-  
-  let studentsAlfabetic = students.sort(name)
-
-  console.log('15:') 
-  console.log(studentsAlfabetic)
