@@ -1,4 +1,5 @@
 # Classroom management
+PRÁCTICA PARA MÓDULO DE JAVASCRIPT DESDE CERO 
 Necesitamos desarrollar una aplicación hecha con javascript que nos ayude a gestionar los alumnos de nuestra clase.
 
 Partiremos de un listado de alumnos inicial:
